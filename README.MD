@@ -40,7 +40,7 @@ node get.js <URL> [mediaType] [size]
 
 Example:
 ```
-node script.js https://www.instagram.com/p/xxxx/
+node get.js https://www.instagram.com/p/xxxx/
 ```
 
 All downloaded files (mp4, jpg, etc.) will appear in a new folder named after the username
