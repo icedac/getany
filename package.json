@@ -1,6 +1,9 @@
 {
     "name": "getany",
     "version": "0.0.1",
+    "bin" : {
+        "getany": "./get.js"
+    },
     "description": "get any media from url",
     "dependencies": {
         "he": "^1.2.0",

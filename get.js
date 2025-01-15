@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const puppeteer = require('puppeteer')
 const fs = require('fs')
 const path = require('path')
@@ -367,6 +369,7 @@ async function handleInstagram(url, mediaType, sizeArg, postName) {
     const threshold = parseSizeThreshold(sizeArg)
     let folderName = parseOutputFolder(url)
     postName = postName || folderName
+    folderName = path.join( 'output', folderName)
 
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
@@ -392,7 +395,7 @@ async function handleInstagram(url, mediaType, sizeArg, postName) {
                 if (user && user.username) {
                     // Must always print user name
                     console.log('Found username =>', user.username)
-                    folderName = user.username
+                    folderName = path.join( 'output', user.username)
                     fs.mkdirSync(folderName, { recursive: true })
                     fs.writeFileSync(path.join(folderName, postName + '.json'), JSON.stringify(item))
                 }
